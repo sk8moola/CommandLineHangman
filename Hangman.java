@@ -48,7 +48,7 @@ class Hangman {
                 ++ic;
                 System.out.println(guess + " is not in the word :(");
                 System.out.println("You have " + remaining + " guesses remaining");
-                if(inWord.size() == 0 && guess.length() == 1 && ic == 1) { //if it's the first incorrect letter
+                if(guess.length() == 1 && ic == 1) { //if it's the first incorrect letter
                     incorrect.append(guess);
                 }
                 else {
