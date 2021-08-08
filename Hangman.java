@@ -7,8 +7,8 @@ class Hangman {
     String sampleWords[] = new String[] { "barks", "indubitably", "examination", "nintendo", "xylophone", "onigiri",
             "vacation", "poggers", "ramen", "love", "makima" };
 
-    HashMap<String, Integer> hm = new HashMap<String, Integer>();
-    HashMap<String, Integer> inWord = new HashMap<String, Integer>();
+    HashMap<String, Integer> hm = new HashMap<String, Integer>(); //the HashMap for storing all the letters of the word initially
+    HashMap<String, Integer> inWord = new HashMap<String, Integer>(); //the HashMap for storing all the correct letters guessed so far
 
     int remaining = 6;
 
@@ -67,6 +67,10 @@ class Hangman {
                     System.out.println("Tried to guess it early, eh? Stop being trying to be a little genius and keeping guessing, buckaroo");
                     System.out.println("Better be careful, you've only got " + remaining + " tries left");
                 }
+            }
+            else {
+                System.out.println("Wait...what did you just type? Try that again");
+                continue;
             }
         }
 
