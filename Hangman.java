@@ -30,7 +30,7 @@ class Hangman {
             if (remaining == 1 && (!(hm.containsKey(guess))) && !(guess.equals(word))) { //if this is their last try and they get it wrong
                 System.out.println("SSSS OOOOOo yiiiikkesssss that's embarrassing :/");
                 System.out.println("The word was " + word);
-                System.out.println("That's it, GAME OVER. Go outside....touch some grass. Go talk to your friends, that's it. You're done");
+                System.out.println("That's it, GAME OVER. Go outside....touch some grass. Go talk to your friends, that's it. You're done\n");
                 break;
             }
 
@@ -42,19 +42,19 @@ class Hangman {
             if(guess.length() == 1 && hm.containsKey(guess) && ((inWord.size() == (hm.size())-1))) { //it's a letter and it's in the word and it's their last guess
                 inWord.put(guess, 1);
                 System.out.println(guess + " is in the word!");
-                System.out.println("I know you were sweatin' there for a sec lol. Well you did it, congrats! Your prize is....absolutely nothing. Goodbye :)");
+                System.out.println("I know you were sweatin' there for a sec lol. Well you did it, congrats! Your prize is....absolutely nothing. Goodbye :)\n");
                 break;
             }
 
             if(guess.length() == 1 && hm.containsKey(guess)) { //it's a letter and it's in the word
                 inWord.put(guess, 1);
-                System.out.println(guess + " is in the word! Here's how it looks: ");
+                System.out.println("\n" + guess + " is in the word! Here's how it looks: ");
                 this.printSubstring(word); //print out word with only the correct letter(s) e.g. XXXXeXXX ALSO OPTIMIZE THISSSSSS!!!!!!!!!!!!!!!
             }
             else if (guess.length() == 1 && (!(hm.containsKey(guess)))) { //if it's an incorrect letter
                 --remaining;
                 ++ic;
-                System.out.println(guess + " is not in the word :(");
+                System.out.println("\n" + guess + " is not in the word :(");
                 System.out.println("You have " + remaining + " guesses remaining");
                 if(guess.length() == 1 && ic == 1) { //if it's the first incorrect letter
                     incorrect.append(guess);
@@ -62,22 +62,22 @@ class Hangman {
                 else {
                     incorrect.append(", " + guess);
                 }
-                System.out.println(incorrect);
+                System.out.println(incorrect + "\n");
             
             }
             else if (guess.length() > 1) { //if they guess a word
                 if (guess.equals(word)) { //they completely guess the word
-                   System.out.println("Wooooowwwwww look at the brain on this guy. Thinks he's soooo smarrrttt. Well you win....NOTHING. The prize is the friends we made along the way :^)");
+                   System.out.println("\nWooooowwwwww look at the brain on this guy. Thinks he's soooo smarrrttt. Well you win....NOTHING. The real prize was the friends we made along the way :^)\n");
                    break;
                 }
                 else { //they guess the whole word incorrectly
                     --remaining;
-                    System.out.println("Tried to guess it early, eh? Stop being trying to be a little genius and keeping guessing, buckaroo");
-                    System.out.println("Better be careful, you've only got " + remaining + " tries left");
+                    System.out.println("\nTried to guess it early, eh? Stop being trying to be a little genius and keeping guessing, buckaroo");
+                    System.out.println("Better be careful, you've only got " + remaining + " tries left\n");
                 }
             }
             else {
-                System.out.println("Wait...what did you just type? Try that again");
+                System.out.println("\nWait...what did you just type? Try that again\n");
                 continue;
             }
         }
@@ -95,10 +95,10 @@ class Hangman {
 
         if ((replace.toString()).equals(s)) { 
 
-            System.out.println("You Win!!! Congratulations!! You get....absolutely nothing. Goodbye :)");
+            System.out.println("You Win!!! Congratulations!! You get....absolutely nothing. Goodbye :)\n");
             
         } else {
-            System.out.println(replace);
+            System.out.println(replace + "\n");
         }
 
     }
