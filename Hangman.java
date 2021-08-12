@@ -103,7 +103,7 @@ class Hangman {
 
     }
 
-    public void addToHashMap(String s) {
+    public void addToHashMap(String s) { //adds all the correct characters in the word to a HashMap
         for (int i = 0; i < s.length(); i++) {
             String curchar = Character.toString(s.charAt(i));
             if (!(hm.containsKey(curchar))) {
@@ -116,7 +116,7 @@ class Hangman {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //main is our driver method
 
         Hangman obj = new Hangman();
         obj.gameMechanics();
