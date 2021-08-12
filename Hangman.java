@@ -17,7 +17,7 @@ class Hangman {
         StringBuilder incorrect = new StringBuilder("Here are the incorrect letters so far: "); //build upon the incorrect prompt
         int ic = 0; //ic = incorrect counter
         Scanner scan = new Scanner(System.in); //We're constantly having to take user input so might need to have a while loop instead
-        String word = sampleWords[random.nextInt(7)]; // pick a random word, from the word bank
+        String word = sampleWords[random.nextInt(7)]; // pick a random word from the word bank
         
         this.addToHashMap(word);
         
@@ -27,8 +27,9 @@ class Hangman {
             System.out.println("Please guess either a character or a word!");
             String guess = scan.nextLine();
 
-            if (remaining == 1 && (!(hm.containsKey(guess))) && !(guess.equals(word))) { //if this is their last try
+            if (remaining == 1 && (!(hm.containsKey(guess))) && !(guess.equals(word))) { //if this is their last try and they get it wrong
                 System.out.println("SSSS OOOOOo yiiiikkesssss that's embarrassing :/");
+                System.out.println("The word was " + word);
                 System.out.println("That's it, GAME OVER. Go outside....touch some grass. Go talk to your friends, that's it. You're done");
                 break;
             }
@@ -36,6 +37,13 @@ class Hangman {
             if (inWord.containsKey(guess)) { //if they guess the same letter
                 System.out.println("What are you doing?? You've already guessed that letter. Try againnnnn");
                 continue;
+            }
+
+            if(guess.length() == 1 && hm.containsKey(guess) && ((inWord.size() == (hm.size())-1))) { //it's a letter and it's in the word and it's their last guess
+                inWord.put(guess, 1);
+                System.out.println(guess + " is in the word!");
+                System.out.println("I know you were sweatin' there for a sec lol. Well you did it, congrats! Your prize is....absolutely nothing. Goodbye :)");
+                break;
             }
 
             if(guess.length() == 1 && hm.containsKey(guess)) { //it's a letter and it's in the word
@@ -77,7 +85,7 @@ class Hangman {
         scan.close();
     }
 
-    public void printSubstring(String s) { ///print out word with only the correct letter(s)
+    public void printSubstring(String s) { //print out word with only the correct letter(s)
         StringBuilder replace = new StringBuilder(s);
         for (int i = 0; i < s.length(); i++) {
             if (!(inWord.containsKey(Character.toString(s.charAt(i))))) {
@@ -88,6 +96,7 @@ class Hangman {
         if ((replace.toString()).equals(s)) { 
 
             System.out.println("You Win!!! Congratulations!! You get....absolutely nothing. Goodbye :)");
+            
         } else {
             System.out.println(replace);
         }
