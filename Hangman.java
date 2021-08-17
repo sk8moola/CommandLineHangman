@@ -5,7 +5,7 @@ import java.util.HashMap;
 class Hangman {
 
     String sampleWords[] = new String[] { "barks", "indubitably", "examination", "nintendo", "xylophone", "onigiri",
-            "vacation", "poggers", "ramen", "love", "makima" };
+            "vacation", "captainfalcon", "ramen", "love", "makima" };
 
     HashMap<String, Integer> hm = new HashMap<String, Integer>(); //the HashMap for storing all the letters of the word initially
     HashMap<String, Integer> inWord = new HashMap<String, Integer>(); //the HashMap for storing all the correct letters guessed so far
